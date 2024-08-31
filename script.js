@@ -7,14 +7,39 @@ function subtract(a,b) {
 }
 
 function multiply(a,b) {
+    if (b === 0){
+        alert("Cant divide by 0!");
+        return;
+    }
     return a * b;
+}
+
+function negative(a) {
+    return a * -1;
+}
+
+function percentage(a) {
+    return a / 100;
+}
+
+function round(a) {
+    return Math.round(a * 1000) / 1000;
 }
 
 function divide(a,b) {
     if (b === 0){
-        return null;
+        alert("Cant divide by 0!");
+        return;
     }
     return a/b;
+}
+
+function mod(a,b) {
+    return a % b;
+}
+
+function exp(a,b) {
+    return a ** b;
 }
 
 let firstNum;
