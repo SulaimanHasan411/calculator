@@ -14,10 +14,6 @@ function subtract(a,b) {
 }
 
 function multiply(a,b) {
-    if (b === 0){
-        alert("Cant divide by 0!");
-        return;
-    }
     return a * b;
 }
 
@@ -75,8 +71,12 @@ function operate(num1, operator, num2) {
     }
 }
 
-function singleOperator(num1,operator){
-    switch(operator){
+function singleOperator(op){
+    if (operator !== null){
+        calculateResult();
+    }
+    num1 = Number(val);
+    switch(op){
         case "+/-":
             val = negative(num1);
             display.textContent = val;
@@ -107,10 +107,13 @@ function updateInput(num) {
 }
 
 function storeInput(op){
+    if (operator !== null){
+        calculateResult();
+    }
     operator = op;
     firstNum = Number(val);
     val = "";
-    display.textContent = op;
+    display.textContent += op;
 }
 
 function calculateResult(){
@@ -148,7 +151,7 @@ for (const btn of buttons){
             clearDisplay();
         }
         else if(btn.classList.contains("single")){
-            singleOperator(Number(val),btn.textContent);
+            singleOperator(btn.textContent);
         }
         else if(btn.classList.contains("operator")){
             storeInput(btn.textContent);
